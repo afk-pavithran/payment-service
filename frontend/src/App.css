@@ -42,4 +42,11 @@
 .Header {
   height: 8vh;
   background: #282c34;
+  color: aliceblue;
+  
+}
+.Header h1 {
+  margin-left: 20px;
+  text-align: left;
+  cursor: pointer;
 }

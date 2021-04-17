@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router'
 
 const Product = () => {
 
+    useEffect(() => {
+        generateHash()
+    }, [])
+
     const history = useHistory()
 
     const [productDetails, setProductDetails] = useState({
-        txnid: "4TGnVaMrKb8Xnf",
-        key: "gtKFFx",
-        salt: "eCwWELxi",
+        // txnid: "4TGnVaMrKb8Xnf",
+        // key: "gtKFFx",
+        // salt: "eCwWELxi",
         amount: "10.00",
         firstname: "first",
         email: "test@gmail.com",
@@ -24,7 +28,7 @@ const Product = () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                // "Access-Control-Allow-Header": "*"
+                "Access-Control-Allow-Header": "*"
             },
             body
         })
@@ -41,7 +45,7 @@ const Product = () => {
         <div className='Product'>
             <h1>Product Details</h1>
 
-            <button onClick={generateHash}>Generate Hash</button>
+            <button >Checkout</button>
         </div>
     )
 }

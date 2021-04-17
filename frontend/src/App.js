@@ -15,7 +15,7 @@ function App() {
         <Route path='/' exact component={Home} />
         <Route path='/product' component={Product} />
         <Route path='/checkout' component={Checkout} />
-        <Route path='/payment-status' component={Response} />
+        <Route path='/payment-status/:txnid' component={Response} />
       </Switch>
     </div>
   );
