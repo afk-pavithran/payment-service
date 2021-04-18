@@ -17,6 +17,13 @@ const Home = () => {
         fetchData()
     }, [])
 
+    const buyHandler = () => {
+        history.push({
+            pathname: '/product',
+            state: {product}
+        })
+    }
+
     const history = useHistory()
     return (
         <div>
@@ -25,7 +32,7 @@ const Home = () => {
                 <h2>Name - {product.name}</h2>
                 <h2>Price - {product.price}</h2>
                 <h3>quantity - {product.quantity}</h3>
-            <button onClick={() => history.push('/product')} >Buy This</button>
+            <button onClick={buyHandler} >Buy This</button>
             </div>
         </div>
     )

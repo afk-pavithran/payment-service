@@ -10,17 +10,17 @@ const Checkout = () => {
     return (
         <div>
             <form action='https://test.payu.in/_payment' method='POST'>
-                <input name='key' value={data.key} />
-                <input name='txnid' value={data.txnid} />
-                <input name='amount' value={data.amount} />
-                <input name='firstname' value={data.firstname} />
-                <input name='email' value={data.email} />
-                <input name='phone' value={data.phone} />
-                <input name='productinfo' value={data.productinfo} />
-                <input name='surl' value={data.surl} />
-                <input name='furl' value={data.furl} />
-                <input name='hash' value={hash} />
-                <input type='submit' value='submit' />
+                <input type='hidden' name='key' value={data.key} />
+                <input type='hidden' name='txnid' value={data.txnid} />
+                <input type='hidden' name='amount' value={data.amount} />
+                <input type='hidden' name='firstname' value={data.firstname} />
+                <input type='hidden' name='email' value={data.email} />
+                <input type='hidden' name='phone' value={data.phone} />
+                <input type='hidden' name='productinfo' value={data.productinfo} />
+                <input type='hidden' name='surl' value={data.surl} />
+                <input type='hidden' name='furl' value={data.furl} />
+                <input type='hidden' name='hash' value={hash} />
+                <button style={{marginTop: '20px'}} type='submit'>Pay using PayuMoney</button>
             </form>
         </div>
     )

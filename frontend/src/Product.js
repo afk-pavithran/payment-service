@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router'
+import { useHistory, useLocation } from 'react-router'
 
 const Product = () => {
+
+    const location = useLocation()
+
+    const {product} = location.state
 
     useEffect(() => {
         generateHash()
@@ -13,7 +17,7 @@ const Product = () => {
         // txnid: "4TGnVaMrKb8Xnf",
         // key: "gtKFFx",
         // salt: "eCwWELxi",
-        amount: "10.00",
+        amount: product.price,
         firstname: "first",
         email: "test@gmail.com",
         phone: "9876543210",
