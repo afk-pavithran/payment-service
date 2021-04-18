@@ -1,3 +1,4 @@
+from django.http.response import Http404
 from .models import ProductDetail, TransactionDetails
 from .serializers import ProductSerializer, TransactionSerializer
 from restapi.payumoney import PayuMoney
@@ -47,9 +48,16 @@ class PaymentPayload(APIView):
 
 class ResponseRedirect(APIView):
 
-    def get(self, request, format=None):
-        d = TransactionDetails.objects.all()
-        serializer = TransactionSerializer(d, many=True)
+
+    def get_object(self, txn):
+        try:
+            return TransactionDetails.objects.get(txnid = txn)
+        except TransactionDetails.DoesNotExist:
+            raise Http404
+
+    def get(self, request, txn, format=None):
+        d = self.get_object(txn)
+        serializer = TransactionSerializer(d)
         print(serializer)
         return Response(serializer.data)
 

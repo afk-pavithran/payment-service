@@ -10,5 +10,6 @@ from .views import PaymentPayload, Products, ResponseRedirect
 urlpatterns = [
     path('payload/', PaymentPayload.as_view()),
     path('response/', ResponseRedirect.as_view()),
+    path('response/<str:txn>/', ResponseRedirect.as_view()),
     path('prod/', Products.as_view())
 ]
